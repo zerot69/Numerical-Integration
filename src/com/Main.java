@@ -25,6 +25,7 @@ public class Main {
         System.out.println("2. Midpoint Rule");
         System.out.println("3. Trapezoidal Rule");
         System.out.println("4. Simpson's Rule");
+        System.out.println("5. Monte Carlo simulation");
         System.out.println("X. Exit");
         System.out.println("\nChoose a method: ");
         String input = "";
@@ -68,6 +69,15 @@ public class Main {
                 int n = scanner.nextInt();
                 double simpsonsRule = Method.simpsonsRule(n);
                 System.out.println("Integral ≈ Simpson's Rule Sum = " + simpsonsRule);
+            }
+
+            // Monte Carlo simulation
+            else if (input.equals("5")){
+                System.out.println("\nMonte Carlo simulation");
+                System.out.println("Number of dots:");
+                int n = scanner.nextInt();
+                double MonteCarlo = Method.MonteCarlo(n);
+                System.out.println("Integral ≈ Inside dots / Total dots * Rectangle area = " + MonteCarlo);
             }
 
             // Exit

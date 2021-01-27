@@ -1,13 +1,14 @@
 package com;
 
+import java.util.Random;
+
 public class Method {
     public static double function(double x){
-        double result = (2*x + 1)*Math.log(x);
-        return result;
+        return (2*x + 1)*Math.log(x);
     }
 
     public static double leftRiemannSum(int n){
-        double delta = (Main.b-Main.a)/(Double.valueOf(n));
+        double delta = (Main.b-Main.a)/((double) n);
         double sumLeft = 0;
         double x;
         for (int i=0; i<n; i++){
@@ -19,7 +20,7 @@ public class Method {
     }
 
     public static double rightRiemannSum(int n){
-        double delta = (Main.b-Main.a)/(Double.valueOf(n));
+        double delta = (Main.b-Main.a)/((double) n);
         double sumRight = 0;
         double x;
         for (int i=1; i<=n; i++){
@@ -31,7 +32,7 @@ public class Method {
     }
 
     public static double midpointRule(int n){
-        double delta = (Main.b-Main.a)/(Double.valueOf(n));
+        double delta = (Main.b-Main.a)/((double) n);
         double sumMid = 0;
         double x;
         for (int i=0; i<n; i++){
@@ -42,7 +43,7 @@ public class Method {
     }
 
     public static double trapezoidalRule(int n){
-        double delta = (Main.b-Main.a)/(Double.valueOf(n));
+        double delta = (Main.b-Main.a)/((double) n);
         double sumTrap = 0;
         double x1,x2;
         for (int i=0; i<n; i++){
@@ -54,7 +55,7 @@ public class Method {
     }
 
     public static double simpsonsRule(int n){
-        double delta = (Main.b-Main.a)/(Double.valueOf(n));
+        double delta = (Main.b-Main.a)/((double) n);
         double sumSimpson = 0;
         double x;
         for (int i=0; i<=n; i++){
@@ -68,5 +69,26 @@ public class Method {
             }
         }
         return sumSimpson;
+    }
+
+    public static double MonteCarlo(int n){
+        int in = 0;
+        int out = 0;
+        double min = 0;
+        double max = function(Main.b);
+        double rectangle = (Main.b-Main.a) * max;
+        double x,y;
+        for (int i=0; i<n; i++){
+            x = Main.a + new Random().nextDouble() * (Main.b - Main.a);
+            y = min + new Random().nextDouble() * (max - min);
+            if (y > function(x)){
+                out++;
+            } else {
+                in++;
+            }
+        }
+        System.out.println("Number of dots inside = " + in);
+        System.out.println("Number of dots outside = " + out);
+        return in / ((double) n) * rectangle;
     }
 }
