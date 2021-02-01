@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class Main {
 
     // Closed interval from a to b: [1,9]
+    // You can change the function f(x) at Method.function()
     final static int a = 1;
     final static int b = 9;
 
