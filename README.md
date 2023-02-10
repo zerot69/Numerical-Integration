@@ -2,7 +2,7 @@
 Methods of Numerical Integration, implemented using Java
 
 ## The function f(x)
-In default, the function f(x) is ```f(x) = (2x+1)*ln(x)```. This can be changed by replacing with the new function of the method *Method.funtion()*
+In default, the function `f(x)` is `f(x) = (2x+1)*ln(x)`. This can be changed by replacing with the new function of the method *Method.funtion()*
 ```java
 public static double function(double x){
     return (2*x + 1)*Math.log(x); // Here you can change f(x) into another function
@@ -10,7 +10,7 @@ public static double function(double x){
 ```
 
 ## Left Riemann Sum
-Left Riemann Sum of f(x) over [a,b] can be calculated as ```Sum = ∆x * ( f(a) + f(a+∆x) + f(a+2∆x) + f(a+3∆x) + ... + f(b-∆x) )``` with ```∆x = (b-a)/n``` 
+Left Riemann Sum of `f(x)` over `[a,b]` can be calculated as `Sum = ∆x * ( f(a) + f(a+∆x) + f(a+2∆x) + f(a+3∆x) + ... + f(b-∆x) )` with `∆x = (b-a)/n` 
 
 ```java
 public static double leftRiemannSum(int n){
@@ -27,7 +27,7 @@ public static double leftRiemannSum(int n){
 ```
 
 ## Right Riemann Sum
-Right Riemann Sum of f(x) over [a,b] can be calculated as ```Sum = ∆x * ( f(a+∆x) + f(a+2∆x) + ... + f(b-∆x) + f(b) )``` with ```∆x = (b-a)/n``` 
+Right Riemann Sum of `f(x)` over `[a,b]` can be calculated as `Sum = ∆x * ( f(a+∆x) + f(a+2∆x) + ... + f(b-∆x) + f(b) )` with `∆x = (b-a)/n` 
 
 ```java
 public static double rightRiemannSum(int n){
@@ -44,7 +44,7 @@ public static double rightRiemannSum(int n){
 ```
 
 ## Midpoint Rule
-Midpoint Rule of f(x) over [a,b] can be calculated as ```Sum = ∆x * ( f(a+∆x/2) + f(a+3∆x/2) + f(a+5∆x/2) + ... + f(b-∆x/2) )``` with ```∆x = (b-a)/n``` 
+Midpoint Rule of `f(x)` over `[a,b]` can be calculated as `Sum = ∆x * ( f(a+∆x/2) + f(a+3∆x/2) + f(a+5∆x/2) + ... + f(b-∆x/2) )` with `∆x = (b-a)/n` 
 
 ```java
 public static double midpointRule(int n){
@@ -60,7 +60,7 @@ public static double midpointRule(int n){
 ```
 
 ## Trapezoidal Rule
-Trapezoidal Rule of f(x) over [a,b] can be calculated as ```Sum = ∆x/2 * ( f(a) + 2f(a+∆x) + 2f(a+2∆x) + ... + 2f(b-∆x) + f(b) )``` with ```∆x = (b-a)/n``` 
+Trapezoidal Rule of `f(x)` over `[a,b]` can be calculated as `Sum = ∆x/2 * ( f(a) + 2f(a+∆x) + 2f(a+2∆x) + ... + 2f(b-∆x) + f(b) )` with `∆x = (b-a)/n` 
 
 ```java
 public static double trapezoidalRule(int n){
@@ -77,7 +77,7 @@ public static double trapezoidalRule(int n){
 ```
 
 ## Simpson's Rule
-Simpson's Rule of f(x) over [a,b] can be calculated as ```Sum = ∆x/2 * ( f(a) + 2f(a+∆x) + 2f(a+2∆x) + ... + 2f(b-∆x) + f(b) )``` with ```∆x = (b-a)/n``` 
+Simpson's Rule of `f(x)` over `[a,b]` can be calculated as `Sum = ∆x/2 * ( f(a) + 2f(a+∆x) + 2f(a+2∆x) + ... + 2f(b-∆x) + f(b) )` with `∆x = (b-a)/n` 
 
 ```java
 public static double simpsonsRule(int n){
@@ -99,10 +99,10 @@ public static double simpsonsRule(int n){
 ```
 
 ## Monte Carlo's Simulation
-In this simulation, a number ```n``` will be inputted. This number is the total number of random dots. Therefore the randomization of dots will be looped *n* times.
-In each loop, 2 numbers x and y, satisfy the conditionsa <= x <= b and f(a) <= y <= f(b), are randomized. These 2 numbers are the location of the random dot (x,y).
-If y > f(x), the dot is outside the area, then the counter ```out``` is increased by 1. Otherwise, if y <= f(x), the dot is inside the area and the counter ```in``` is increased by 1.
-After *n* loops, the approximation of the area under the curve of f(x) over the closed interval [a,b] is returned as ```in / n * rectangle area```
+In this simulation, a number `n` will be inputted. This number is the total number of random dots. Therefore the randomization of dots will be looped *n* times.
+In each loop, 2 numbers `x` and `y`, satisfy the conditions `a <= x <= b` and `f(a) <= y <= f(b)`, are randomized. These 2 numbers are the location of the random dot `(x,y)`.
+If `y > f(x)`, the dot is outside the area, then the counter `out` is increased by 1. Otherwise, if `y <= f(x)`, the dot is inside the area and the counter `in` is increased by 1.
+After *n* loops, the approximation of the area under the curve of `f(x)` over the closed interval `[a,b]` is returned as `in / n * rectangle area`
 
 ```java
 public static double MonteCarlo(int n){
